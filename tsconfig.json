@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "strict": true,
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "target": "es6",
+      "moduleResolution": "node",
+      "lib": ["ES2020", "DOM"],
+      "declaration": true,
+      "outDir": "dist",
+      "inlineSourceMap": true,
+      "strictNullChecks": true,
+      "incremental": true
+    },
+    "include": ["src/**/*.ts", "examples/**/*.ts"],
+    "exclude": ["node_modules"]
+  }
+  
