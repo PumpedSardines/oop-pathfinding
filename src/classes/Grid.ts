@@ -28,7 +28,7 @@ class Grid {
     this.tiles = new Array(this.width * this.height)
       .fill(0)
       // The map here is needed to remove reference
-      .map((v) => tile);
+      .map(() => tile);
 
     return this;
   }

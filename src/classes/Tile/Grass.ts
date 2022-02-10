@@ -6,7 +6,7 @@ class Grass extends Tile {
   }
 
   public get modifier() {
-    return 4;
+    return 6;
   }
 
   public get color() {

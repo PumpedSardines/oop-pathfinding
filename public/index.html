@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,24 @@
   <link rel="stylesheet" href="style.css">
   <title>Pathfinding</title>
 </head>
+
 <body>
   <canvas width="300" height="300"></canvas>
+  <form id="form" style="width: 800px">
+    <fieldset>
+      <legend>Settings</legend>
+      <label for="end-x">End x position</label>
+      <input type="text" name="end-x"><br>
+      <label for="end-y">End y position</label>
+      <input type="text" name="end-y"><br>
+      <label for="start-x">Start x position</label>
+      <input type="text" name="start-x"><br>
+      <label for="start-y">Start y position</label>
+      <input type="text" name="start-y"><br>
+      <button>Change</button>
+    </fieldset>
+  </form>
   <script src="bundle.js"></script>
 </body>
+
 </html>

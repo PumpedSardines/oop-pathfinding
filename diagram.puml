@@ -1,0 +1,77 @@
+@startuml
+class OutOfBoundsError extends Error
+abstract class Tile {
+    +{abstract} isBlocking: boolean
+    +{abstract} modifier: number
+    +{abstract} color: string
+}
+class Grid {
+    +width: number
+    +height: number
+    #tiles: Tile[]
+    +fill(tile: Tile): this
+    +set(x: number, y: number, tile: Tile): this
+    +get(x: number, y: number): Tile
+    -throwOutsideOfBounds(x: number, y: number): void
+}
+class GridLoop {
+    -startX: number
+    -startY: number
+    -endX: number
+    -endY: number
+    -skips: Record<string, boolean>
+    +setStart(x: number, y: number): this
+    +setEnd(x: number, y: number): this
+    +skip(x: number, y: number): this
+}
+abstract class PathFinding {
+    #grid: Grid
+    #startX: number
+    #startY: number
+    #endX: number
+    #endY: number
+    +{abstract} solve(): Position[] | null
+    +setStart(x: number, y: number): this
+    +setEnd(x: number, y: number): this
+}
+interface OpenSetItem {
+    +x: number
+    +y: number
+    +gCost: number
+    +hCost: number
+    +pointer: { x: number; y: number; }
+    +explored: boolean
+}
+class OpenSet {
+    -map: Map<string, OpenSetItem>
+    +get(x: number, y: number): OpenSetItem
+    +set(x: number, y: number, item: OpenSetItem): OpenSet
+    +values(): IterableIterator<OpenSetItem>
+    +has(x: number, y: number): boolean
+    -{static} getId(x: number, y: number): string
+}
+class AStar extends PathFinding {
+    -openSet: OpenSet | null
+    +solve(): Position[] | null
+    -getNodeWithLowestFCost(): OpenSetItem | null
+    -pathTraceBack(x: number, y: number): Position[]
+    -openNeighbors(x: number, y: number): void
+    -heuristics(x: number, y: number): number
+    -getFCost(__0: { hCost: number; gCost: number; }): number
+}
+class Grass extends Tile {
+    +isBlocking: boolean
+    +modifier: number
+    +color: string
+}
+class Road extends Tile {
+    +isBlocking: boolean
+    +modifier: number
+    +color: string
+}
+class Stone extends Tile {
+    +isBlocking: boolean
+    +modifier: number
+    +color: string
+}
+@enduml

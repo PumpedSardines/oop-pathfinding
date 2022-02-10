@@ -7,7 +7,7 @@
     "build": "tsc",
     "webpack:watch": "webpack --watch --mode development",
     "webpack": "webpack --mode production",
-    "diagram": "tplant -i src/index.ts -o diagram.svg"
+    "diagram": "tplant -i src/index.ts -o diagram.publ"
   },
   "devDependencies": {
     "ts-loader": "^9.2.6",

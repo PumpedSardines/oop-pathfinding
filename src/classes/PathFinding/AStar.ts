@@ -181,9 +181,6 @@ class AStar extends PathFinding {
       throw new Error("Can't find a node with a nonexistent openSet");
     }
 
-    // The return positions
-    const returnValue: Position[] = [];
-
     /**
      * Recursive loop for finding the path
      * The reason for using recursion instead of a while loop
